@@ -1,3 +1,4 @@
+
 # Copyright 2021 Petrov, Danil <ddbihbka@gmail.com>. All Rights Reserved.
 # Author: Petrov, Danil <ddbihbka@gmail.com>
 #
@@ -34,7 +35,6 @@ def dev(session):
     session.install("neovim")
     # we use yapf for formating
     session.install("yapf")
-    session.install ("isort")
     # install the current package in editable mode
     session.install("-e", ".")
     message = "To activate the dev environment you can run the command:" \
@@ -66,7 +66,7 @@ def lint(session):
     session.install("flake8")
     session.install("pylint")
 
-    for source in ["tests"]:
+    for source in ["src", "tests"]:
         run_flake(source)
         run_pylint(source)
 
@@ -76,11 +76,20 @@ def lint(session):
 def typing(session):
     """Run linters."""
     def run_pytype(source):
-        return session.run("python", "-m", "pytype", "-k", "-d",
-                           "import-error", source)
+        return session.run("python", "-m", "mypy", source)
 
-    session.install("pytype")
+    session.install("mypy")
     session.install(".")
 
-    for source in ["tests"]:
+    for source in ["src"]:
         run_pytype(source)
+
+
+@nox.session(python=["3.9"], venv_params=["--system-site-packages"])
+def deploy(session):
+    """Deploy the pacakge."""
+    session.install("build")
+    session.install("twine")
+    session.run("python","-m", "build")
+    session.run("twine", "check", "dist/*")
+    session.run("twine", "upload", "dist/*")
