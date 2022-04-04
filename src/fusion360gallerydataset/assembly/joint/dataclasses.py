@@ -13,7 +13,7 @@
 # limitations under the License.
 '''Parser of Fusion360GalleryDataset Assembly-Joint data.'''
 
-from typing import Optional, Sequence, Text
+from typing import Optional, Sequence, Text, Union
 
 import dataclasses
 import enum
@@ -23,25 +23,104 @@ import numpy as np
 
 
 class JointType(str, enum.Enum):
-    '''Joint Motion type.
-    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#joint-motion
+    '''Joint motion type.
+    https://github.com/autodeskailab/fusion360gallerydataset/blob/master/docs/assembly_joint.md#joint-motion
     '''
     RIGID = 'RigidJointType'
     REVOLUTE = 'RevoluteJointType'
     SLIDER = 'SliderJointType'
-    CYLINDER = 'CylinderJointType'
+    CYLINDRICAL = 'CylindricalJointType'
     PIN_SLOT = 'PinSlotJointType'
     PLANAR = 'PlanarJointType'
     BALL = 'BallJointType'
 
 
 @dataclasses.dataclass
+class Limit:
+    '''Movement limits.'''
+    minimum_value: float
+    maximum_value: float
+    rest_value: float
+    is_minimum_value_enabled: bool
+    is_maximum_value_enabled: bool
+    is_rest_value_enabled: bool
+
+    @staticmethod
+    def deserialize(blob: Text) -> 'Limit':
+        '''Deserialize limits.'''
+        raw_data = json.loads(blob)
+
+        return Limit(
+            minimum_value=raw_data.get('minimum_value'),
+            maximum_value=raw_data.get('maximum_value'),
+            rest_value=raw_data.get('rest_value'),
+            is_minimum_value_enabled=raw_data.get('is_minimum_value_enabled'),
+            is_maximum_value_enabled=raw_data.get('is_maximum_value_enabled'),
+            is_rest_value_enabled=raw_data.get('is_rest_value_enabled'))
+
+
+@dataclasses.dataclass
+class Rigid:
+    '''Rigid joint motion, 0 dof.'''
+
+
+@dataclasses.dataclass
+class Revolute:
+    '''Revolute joint motion.'''
+    rotation_axis: str
+    rotation_limits: Limit
+
+
+@dataclasses.dataclass
+class Slider:
+    '''Slider joint motion.'''
+    slide_direction: str
+    slide_limits: Limit
+
+
+@dataclasses.dataclass
+class Cylindrical:
+    '''Cylindrical joint motion.'''
+    rotation_axis: str
+    rotation_limits: Limit
+    slide_limits: Limit
+
+
+@dataclasses.dataclass
+class PinSlot:
+    '''Pin slot joint motion.'''
+    rotation_axis: str
+    slide_direction: str
+    rotation_limits: Limit
+    slide_limits: Limit
+
+
+@dataclasses.dataclass
+class Planar:
+    '''Planar joint motion.'''
+    normal_direction: str
+    primary_slide_direction: str
+    rotation_limits: Limit
+    primary_slide_limits: Limit
+
+
+@dataclasses.dataclass
+class Ball:
+    '''Ball joint motion.'''
+    pitch_direction: str
+    yaw_direction: str
+    pitch_limits: Limit
+    roll_limits: Limit
+    yaw_limits: Limit
+
+
+@dataclasses.dataclass
 class JointMotion:
-    '''Joint Motion.
-    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#joint-motion
+    '''Joint motion.
+    https://github.com/autodeskailab/fusion360gallerydataset/blob/master/docs/assembly_joint.md#joint-motion
     '''
     joint_type: JointType
-    rotation_axis: Optional[str] = None
+    motion: Union[Rigid, Revolute, Slider, Cylindrical, PinSlot, Planar, Ball]
 
     @staticmethod
     def deserialize(blob: Text) -> 'JointMotion':
@@ -51,20 +130,61 @@ class JointMotion:
         joint_type = JointType(raw_data.get('joint_type'))
 
         if joint_type is JointType.RIGID:
-            return JointMotion(joint_type=joint_type)
+            return JointMotion(joint_type=joint_type, motion=Rigid())
         elif joint_type is JointType.REVOLUTE:
             return JointMotion(joint_type=joint_type,
-                               rotation_axis=raw_data.get('rotation_axis'))
+                               motion=Revolute(
+                                   rotation_axis=raw_data.get('rotation_axis'),
+                                   rotation_limits=Limit.deserialize(
+                                       json.dumps(
+                                           raw_data.get('rotation_limits')))))
         elif joint_type is JointType.SLIDER:
-            raise NotImplementedError(blob)
-        elif joint_type is JointType.CYLINDER:
-            raise NotImplementedError(blob)
+            return JointMotion(
+                joint_type=joint_type,
+                motion=Slider(slide_direction=raw_data.get('slide_direction'),
+                              slide_limits=Limit.deserialize(
+                                  json.dumps(raw_data.get('slide_limits')))))
+        elif joint_type is JointType.CYLINDRICAL:
+            return JointMotion(
+                joint_type=joint_type,
+                motion=Cylindrical(
+                    rotation_axis=raw_data.get('rotation_axis'),
+                    rotation_limits=Limit.deserialize(
+                        json.dumps(raw_data.get('rotation_limits'))),
+                    slide_limits=Limit.deserialize(
+                        json.dumps(raw_data.get('slide_limits')))))
         elif joint_type is JointType.PIN_SLOT:
-            raise NotImplementedError(blob)
+            return JointMotion(
+                joint_type=joint_type,
+                motion=PinSlot(rotation_axis=raw_data.get('rotation_axis'),
+                               slide_direction=raw_data.get('slide_direction'),
+                               rotation_limits=Limit.deserialize(
+                                   json.dumps(
+                                       raw_data.get('rotation_limits'))),
+                               slide_limits=Limit.deserialize(
+                                   json.dumps(raw_data.get('slide_limits')))))
         elif joint_type is JointType.PLANAR:
-            raise NotImplementedError(blob)
+            return JointMotion(
+                joint_type=joint_type,
+                motion=Planar(
+                    normal_direction=raw_data.get('normal_direction'),
+                    primary_slide_direction=raw_data.get(
+                        'primary_slide_direction'),
+                    rotation_limits=Limit.deserialize(
+                        json.dumps(raw_data.get('rotation_limits'))),
+                    primary_slide_limits=Limit.deserialize(
+                        json.dumps(raw_data.get('primary_slide_limits')))))
         elif joint_type is JointType.BALL:
-            raise NotImplementedError(blob)
+            return JointMotion(
+                joint_type=joint_type,
+                motion=Ball(pitch_direction=raw_data.get('pitch_direction'),
+                            yaw_direction=raw_data.get('yaw_direction'),
+                            pitch_limits=Limit.deserialize(
+                                json.dumps(raw_data.get('pitch_limits'))),
+                            roll_limits=Limit.deserialize(
+                                json.dumps(raw_data.get('roll_limits'))),
+                            yaw_limits=Limit.deserialize(
+                                json.dumps(raw_data.get('yaw_limits')))))
 
         raise NotImplementedError(blob)
 
@@ -81,7 +201,7 @@ class Point3D:
     def deserialize(blob: Text) -> 'Point3D':
         '''Deserialize Point3D from json.'''
         raw_data = json.loads(blob)
-        assert raw_data.get('type') == 'Point3D'
+        assert raw_data.get('type') == 'Point3D', blob
         return Point3D(point=np.array(
             [raw_data.get('x'),
              raw_data.get('y'),
@@ -104,7 +224,7 @@ class Vector3D:
     def deserialize(blob: Text) -> 'Vector3D':
         '''Deserialize Vector3D from json.'''
         raw_data = json.loads(blob)
-        assert raw_data.get('type') == 'Vector3D'
+        assert raw_data.get('type') == 'Vector3D', blob
         return Vector3D(point=np.array(
             [raw_data.get('x'),
              raw_data.get('y'),
@@ -124,7 +244,7 @@ class BoundingBox:
     def deserialize(blob: Text) -> 'BoundingBox':
         '''Deserialize BoundingBox from json.'''
         raw_data = json.loads(blob)
-        assert raw_data.get('type') == 'BoundingBox3D'
+        assert raw_data.get('type') == 'BoundingBox3D', blob
 
         return BoundingBox(
             min_point=Point3D.deserialize(json.dumps(
@@ -227,7 +347,7 @@ class JointGeometry:
     def deserialize(blob: Text) -> 'JointGeometry':
         '''Deserialize JointGeometry from json.'''
         raw_data = json.loads(blob)
-        assert raw_data.get('type') == 'JointGeometry'
+        assert raw_data.get('type') == 'JointGeometry', blob
 
         return JointGeometry(
             geometry_type=raw_data.get('geometry_type'),
@@ -247,7 +367,7 @@ class JointGeometry:
                 json.dumps(raw_data.get('axis_line'))),
             entity_one_equivalents=[
                 EntityOne.deserialize(json.dumps(x))
-                for x in raw_data.get('entity_one_equivalents')
+                for x in raw_data.get('entity_one_equivalents', [])
             ])
 
 
@@ -261,8 +381,8 @@ class Offset:
     def deserialize(blob: Text) -> 'Offset':
         '''Deserialize Offset from json.'''
         raw_data = json.loads(blob)
-        assert raw_data.get('type') == 'ModelParameter'
-        assert raw_data.get('name') == 'offset'
+        assert raw_data.get('type') == 'ModelParameter', blob
+        assert raw_data.get('name') in ('offset', 'd4'), blob
 
         return Offset(role=raw_data.get('role'), value=raw_data.get('value'))
 
@@ -277,8 +397,8 @@ class Angle:
     def deserialize(blob: Text) -> 'Angle':
         '''Deserialize Angle from json.'''
         raw_data = json.loads(blob)
-        assert raw_data.get('type') == 'ModelParameter'
-        assert raw_data.get('name') == 'angle'
+        assert raw_data.get('type') == 'ModelParameter', blob
+        assert raw_data.get('name') in ('angle', 'd1'), blob
 
         return Angle(role=raw_data.get('role'), value=raw_data.get('value'))
 
@@ -301,7 +421,7 @@ class Joint:
     def deserialize(blob: Text) -> 'Joint':
         '''Deserialize Joint from json.'''
         raw_data = json.loads(blob)
-        assert raw_data.get('type') == 'Joint'
+        assert raw_data.get('type') == 'Joint', blob
 
         return Joint(
             name=raw_data.get('name'),
@@ -358,9 +478,16 @@ class Hole:
                     length=raw_data.get('length'),
                     origin=Point3D.deserialize(
                         json.dumps(raw_data.get('origin'))),
-                    direction=Vector3D.deserialize(json.dumps(raw_data.get('direction'))),
-                    faces=[EntityOne.deserialize(json.dumps(x)) for x in raw_data.get('faces', [])],
-                    edges=[EntityOne.deserialize(json.dumps(x)) for x in raw_data.get('edges', [])])
+                    direction=Vector3D.deserialize(
+                        json.dumps(raw_data.get('direction'))),
+                    faces=[
+                        EntityOne.deserialize(json.dumps(x))
+                        for x in raw_data.get('faces', [])
+                    ],
+                    edges=[
+                        EntityOne.deserialize(json.dumps(x))
+                        for x in raw_data.get('edges', [])
+                    ])
 
 
 @dataclasses.dataclass
@@ -383,8 +510,7 @@ class JointSet:
         body_one = raw_data.get('body_one')
         body_two = raw_data.get('body_two')
         joints = [
-            Joint.deserialize(json.dumps(x))
-            for x in raw_data.get('joints', [])
+            Joint.deserialize(json.dumps(x)) for x in raw_data.get('joints')
         ]
         contacts = [
             Contact.deserialize(json.dumps(x))

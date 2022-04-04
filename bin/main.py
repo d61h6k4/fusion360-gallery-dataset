@@ -14,12 +14,13 @@
 '''Entry poiny.'''
 
 import argparse
+import collections
 import json
 import pathlib
 import tqdm
 
-
 from fusion360gallerydataset.assembly.joint.dataclasses import JointSet
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -37,18 +38,34 @@ def main():
 
     assert args.datasetdir.exists(), f'{args.datasetdir} doesn\'t exist.'
     train_test_metainfo_file = args.datasetdir / 'train_test.json'
-    assert train_test_metainfo_file.exists(), f'{train_test_metainfo_file} doesn\'t exist.'
+    assert train_test_metainfo_file.exists(
+    ), f'{train_test_metainfo_file} doesn\'t exist.'
     train_test_metainfo = json.loads(train_test_metainfo_file.read_text())
 
-    for split_name in tqdm.tqdm(train_test_metainfo, desc='Processing meta info ...'):
-        assert split_name in ('train', 'validation', 'test', 'uniform_test'), f'Unexpected split name {split_name}'
-        for joint_set_id in tqdm.tqdm(train_test_metainfo.get(split_name), desc=f'Processing {split_name} ...'):
-            joint_set_file = (args.datasetdir / 'joint' / joint_set_id).with_suffix('.json')
+    contains_holes = 0
+    joint_motion_types = collections.defaultdict(int)
+    for split_name in tqdm.tqdm(train_test_metainfo,
+                                desc='Processing meta info ...'):
+        if split_name != 'train':
+            continue
+
+        assert split_name in (
+            'train', 'validation', 'test',
+            'uniform_test'), f'Unexpected split name {split_name}'
+        for joint_set_id in tqdm.tqdm(train_test_metainfo.get(split_name),
+                                      desc=f'Processing {split_name} ...'):
+            joint_set_file = (args.datasetdir / 'joint' /
+                              joint_set_id).with_suffix('.json')
             assert joint_set_file.exists(), f'{joint_set_file} doesn\'t exist.'
 
             joint_set = JointSet.deserialize(joint_set_file.read_text())
-            
 
+            if len(joint_set.holes) > 0:
+                contains_holes += 1
+
+                for joint in joint_set.joints:
+                    joint_motion_types[joint.joint_motion.joint_type] += 1
+    print(f'{contains_holes=}')
 
 
 if __name__ == '__main__':
