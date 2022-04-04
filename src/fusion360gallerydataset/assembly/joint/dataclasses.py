@@ -23,6 +23,9 @@ import numpy as np
 
 
 class JointType(str, enum.Enum):
+    '''Joint Motion type.
+    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#joint-motion
+    '''
     RIGID = 'RigidJointType'
     REVOLUTE = 'RevoluteJointType'
     SLIDER = 'SliderJointType'
@@ -34,6 +37,9 @@ class JointType(str, enum.Enum):
 
 @dataclasses.dataclass
 class JointMotion:
+    '''Joint Motion.
+    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#joint-motion
+    '''
     joint_type: JointType
     rotation_axis: Optional[str] = None
 
@@ -65,7 +71,10 @@ class JointMotion:
 
 @dataclasses.dataclass
 class Point3D:
-    # x, y, z
+    '''Point in 3D.
+    We use numpy to represent it, order is x, y, z
+    (means index 0 for x, index 1 for y and index 2 for z)
+    '''
     point: np.ndarray
 
     @staticmethod
@@ -81,6 +90,13 @@ class Point3D:
 
 @dataclasses.dataclass
 class Vector3D:
+    '''Vector in 3D.
+    We use numpy to represent it, order is x, y, z
+    (means index 0 for x, index 1 for y and index 2 for z)
+
+    !Vector has no difference with point in representation level
+    but it is important to differentiate them from math POV.
+    '''
     # x, y, z
     point: np.ndarray
 
@@ -97,6 +113,10 @@ class Vector3D:
 
 @dataclasses.dataclass
 class BoundingBox:
+    '''BoundingBox.
+
+    We represent bounding_box with min and max points.
+    '''
     min_point: Point3D
     max_point: Point3D
 
@@ -116,9 +136,14 @@ class BoundingBox:
 
 @dataclasses.dataclass
 class EntityOne:
+    '''EntityOne describes the entity (edge or face) of the BRep
+    that used for joint.
+    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#joint-geometry
+    '''
     type: str
     body: str
-    curve_type: str
+    curve_type: Optional[str]
+    surface_type: Optional[str]
     point_on_entity: Point3D
     index: int
     bounding_box: BoundingBox
@@ -131,6 +156,7 @@ class EntityOne:
         return EntityOne(type=raw_data.get('type'),
                          body=raw_data.get('body'),
                          curve_type=raw_data.get('curve_type'),
+                         surface_type=raw_data.get('surface_type'),
                          point_on_entity=Point3D.deserialize(
                              json.dumps(raw_data.get('point_on_entity'))),
                          index=raw_data.get('index'),
@@ -141,6 +167,11 @@ class EntityOne:
 
 @dataclasses.dataclass
 class Transform:
+    '''Transform is function that transforms BRep
+    to the assembly state.
+
+    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#joint-geometry
+    '''
     origin: Point3D
     x_axis: Vector3D
     y_axis: Vector3D
@@ -160,6 +191,7 @@ class Transform:
 
 @dataclasses.dataclass
 class AxisLine:
+    '''AxisLine, contains the origin point and direction vector on the joint axis when in an assembled state.'''
     origin: Point3D
     direction: Vector3D
 
@@ -176,6 +208,10 @@ class AxisLine:
 
 @dataclasses.dataclass
 class JointGeometry:
+    '''JointGeometry is designer-selected B-Rep faces and edges, form the geometric entites used to define joints.
+
+    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#joint-geometry
+    '''
     geometry_type: str
     key_point_type: str
     origin: Point3D
@@ -217,6 +253,7 @@ class JointGeometry:
 
 @dataclasses.dataclass
 class Offset:
+    '''The offset between the two input geometries.'''
     role: str
     value: float
 
@@ -229,8 +266,10 @@ class Offset:
 
         return Offset(role=raw_data.get('role'), value=raw_data.get('value'))
 
+
 @dataclasses.dataclass
 class Angle:
+    '''The angle between the two input geometries.'''
     role: str
     value: float
 
@@ -246,6 +285,10 @@ class Angle:
 
 @dataclasses.dataclass
 class Joint:
+    '''Contains joint parameter information.
+
+    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#joints
+    '''
     name: str
     joint_motion: JointMotion
     geometry_or_origin_one: JointGeometry
@@ -275,24 +318,57 @@ class Joint:
 
 @dataclasses.dataclass
 class Contact:
+    '''Contact labels that indicate which B-Rep faces are coincident or within a tolerance of 0.1mm.
+
+    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#contacts
+    '''
+    entity_one: EntityOne
 
     @staticmethod
     def deserialize(blob: Text) -> 'Contact':
         '''Deserialize Contact from json.'''
-        raise NotImplementedError(blob)
+        raw_data = json.loads(blob)
+        return Contact(entity_one=EntityOne.deserialize(
+            json.dumps(raw_data.get('entity_one'))))
 
 
 @dataclasses.dataclass
 class Hole:
+    '''Hole.
+
+    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#contacts
+    '''
+    type: str
+    body: str
+    diameter: float
+    length: float
+    origin: Point3D
+    direction: Vector3D
+    faces: Sequence[EntityOne]
+    edges: Sequence[EntityOne]
 
     @staticmethod
     def deserialize(blob: Text) -> 'Hole':
         '''Deserialize Hole from json.'''
-        raise NotImplementedError(blob)
+        raw_data = json.loads(blob)
+
+        return Hole(type=raw_data.get('type'),
+                    body=raw_data.get('body'),
+                    diameter=raw_data.get('diameter'),
+                    length=raw_data.get('length'),
+                    origin=Point3D.deserialize(
+                        json.dumps(raw_data.get('origin'))),
+                    direction=Vector3D.deserialize(json.dumps(raw_data.get('direction'))),
+                    faces=[EntityOne.deserialize(json.dumps(x)) for x in raw_data.get('faces', [])],
+                    edges=[EntityOne.deserialize(json.dumps(x)) for x in raw_data.get('edges', [])])
 
 
 @dataclasses.dataclass
 class JointSet:
+    '''Joint paramter information.
+
+    https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/assembly_joint.md#joint-set-json
+    '''
     body_one: str
     body_two: str
     joints: Sequence[Joint]

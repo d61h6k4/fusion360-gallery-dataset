@@ -48,8 +48,6 @@ def main():
 
             joint_set = JointSet.deserialize(joint_set_file.read_text())
             
-            if joint_set.holes and joint_set.contacts:
-                print(joint_set_id)
 
 
 

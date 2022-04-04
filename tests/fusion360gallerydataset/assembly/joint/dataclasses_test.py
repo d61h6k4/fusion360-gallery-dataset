@@ -16,21 +16,19 @@
 import json
 import pytest
 
-from fusion360gallerydataset.assembly.joint.dataclasses import ( JointSet, Joint)
+from fusion360gallerydataset.assembly.joint.dataclasses import (JointSet,
+                                                                Joint)
 
 
-@pytest.fixture
-def joints(joint_set_17549):
+@pytest.fixture(name='joints')
+def fixture_joints(joint_set_17549):
     raw_data = json.loads(joint_set_17549)
     return raw_data.get('joints')
 
 
 def test_joint_deserialize(joints):
-    joints = [Joint.deserialize(json.dumps(x)) for x in joints]
+    assert [Joint.deserialize(json.dumps(x)) for x in joints]
 
-    assert joints
 
 def test_joint_set_deserialize(joint_set_17549):
-    joint_set = JointSet.deserialize(joint_set_17549)
-
-    assert joint_set
+    assert JointSet.deserialize(joint_set_17549)
