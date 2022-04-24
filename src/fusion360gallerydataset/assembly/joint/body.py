@@ -59,5 +59,6 @@ def entities(body_name: str, body: Compound,
 
 
 def _box_to_bbox(box: Box) -> BoundingBox:
-    return BoundingBox(min_point=Point3D(point=box.min_point()),
-                       max_point=Point3D(point=box.max_point()))
+    # here we divide by 10 because dataset uses cm.
+    return BoundingBox(min_point=Point3D(point=box.min_point() / 10.),
+                       max_point=Point3D(point=box.max_point() / 10.))

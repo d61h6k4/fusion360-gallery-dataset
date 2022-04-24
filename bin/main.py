@@ -158,6 +158,8 @@ def vis_dataset(datasetdir: pathlib.Path, df: pd.DataFrame):
 
         scene.link_canvas_events(body_one_canvas, body_two_canvas, assembly_canvas)
         scene.save_as_html(f'datasets/{split_name}.html')
+    if not pathlib.Path('datasets').exists():
+        pathlib.Path('datasets').mkdir()
     pathlib.Path('datasets/train_test.json').write_text(json.dumps(meta_info))
 
 
