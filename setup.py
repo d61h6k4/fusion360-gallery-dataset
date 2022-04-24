@@ -47,6 +47,7 @@ setup(
             'pytest-cov>=2.12',
             'pytest-xdist>=1.34',
             'pytest-datadir>=1.3.1',
+            'pytest-regressions>=2.3.1',
         ],
     },
     package_data={

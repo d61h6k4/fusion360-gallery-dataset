@@ -1,0 +1,1242 @@
+BRepEdge_0:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -4.7625
+      - 5.83238038093927e-16
+      - 0.0
+    min_point:
+      point:
+      - -4.7625
+      - 5.83238038093927e-16
+      - -15.113
+  curve_type: line
+  id: 0
+  index: 0
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_1:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 4.7625
+      - 4.7625
+      - -15.113
+    min_point:
+      point:
+      - -4.7625
+      - -4.7625
+      - -15.113
+  curve_type: circle
+  id: 1
+  index: 1
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_10:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - -1.11515112883559e-15
+      - -9.5504
+    min_point:
+      point:
+      - 9.1059
+      - -1.11515112883559e-15
+      - -10.3378
+  curve_type: line
+  id: 10
+  index: 10
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_11:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - 9.1059
+      - -9.5504
+    min_point:
+      point:
+      - -9.1059
+      - -9.1059
+      - -9.5504
+  curve_type: circle
+  id: 11
+  index: 11
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_12:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.9126
+      - 11.9126
+      - -7.9502
+    min_point:
+      point:
+      - -11.9126
+      - -11.9126
+      - -7.9502
+  curve_type: circle
+  id: 12
+  index: 12
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_13:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.3157
+      - 0.8001
+      - -7.9502
+    min_point:
+      point:
+      - 9.715499999999999
+      - -0.8001
+      - -7.9502
+  curve_type: circle
+  id: 13
+  index: 13
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_14:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.0579
+      - -8.306676736035639
+      - -7.9502
+    min_point:
+      point:
+      - 4.457699999999999
+      - -9.90687673603564
+      - -7.9502
+  curve_type: circle
+  id: 14
+  index: 14
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_15:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -9.7155
+      - 0.800099999999999
+      - -7.9502
+    min_point:
+      point:
+      - -11.315699999999998
+      - -0.800099999999999
+      - -7.9502
+  curve_type: circle
+  id: 15
+  index: 15
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_16:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -4.457699999999999
+      - 9.90687673603564
+      - -7.9502
+    min_point:
+      point:
+      - -6.0579
+      - 8.306676736035639
+      - -7.9502
+  curve_type: circle
+  id: 16
+  index: 16
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_17:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.0579
+      - 9.90687673603564
+      - -7.9502
+    min_point:
+      point:
+      - 4.457699999999999
+      - 8.306676736035639
+      - -7.9502
+  curve_type: circle
+  id: 17
+  index: 17
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_18:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -4.457699999999999
+      - -8.306676736035639
+      - -7.9502
+    min_point:
+      point:
+      - -6.0579
+      - -9.90687673603564
+      - -7.9502
+  curve_type: circle
+  id: 18
+  index: 18
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_19:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.35
+      - 6.35
+      - -7.9502
+    min_point:
+      point:
+      - -6.35
+      - -6.35
+      - -7.9502
+  curve_type: circle
+  id: 19
+  index: 19
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_2:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 4.7625
+      - 4.7625
+      - 0.0
+    min_point:
+      point:
+      - -4.7625
+      - -4.7625
+      - 0.0
+  curve_type: circle
+  id: 2
+  index: 2
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_20:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.3157
+      - -9.79839903997798e-17
+      - -7.9502
+    min_point:
+      point:
+      - 11.3157
+      - -9.79839903997798e-17
+      - -9.5504
+  curve_type: line
+  id: 20
+  index: 20
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_21:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.3157
+      - 0.8001
+      - -9.5504
+    min_point:
+      point:
+      - 9.715499999999999
+      - -0.8001
+      - -9.5504
+  curve_type: circle
+  id: 21
+  index: 21
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_22:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.0579
+      - -9.10677673603564
+      - -7.9502
+    min_point:
+      point:
+      - 6.0579
+      - -9.10677673603564
+      - -9.5504
+  curve_type: line
+  id: 22
+  index: 22
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_23:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.0579
+      - -8.306676736035639
+      - -9.5504
+    min_point:
+      point:
+      - 4.457699999999999
+      - -9.90687673603564
+      - -9.5504
+  curve_type: circle
+  id: 23
+  index: 23
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_24:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -9.7155
+      - -9.79839903997796e-17
+      - -7.9502
+    min_point:
+      point:
+      - -9.7155
+      - -9.79839903997796e-17
+      - -9.5504
+  curve_type: line
+  id: 24
+  index: 24
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_25:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -9.7155
+      - 0.800099999999999
+      - -9.5504
+    min_point:
+      point:
+      - -11.315699999999998
+      - -0.800099999999999
+      - -9.5504
+  curve_type: circle
+  id: 25
+  index: 25
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_26:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -4.4577
+      - 9.10677673603564
+      - -7.9502
+    min_point:
+      point:
+      - -4.4577
+      - 9.10677673603564
+      - -9.5504
+  curve_type: line
+  id: 26
+  index: 26
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_27:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -4.457699999999999
+      - 9.90687673603564
+      - -9.5504
+    min_point:
+      point:
+      - -6.0579
+      - 8.306676736035639
+      - -9.5504
+  curve_type: circle
+  id: 27
+  index: 27
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_28:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.0579
+      - 9.10677673603564
+      - -7.9502
+    min_point:
+      point:
+      - 6.0579
+      - 9.10677673603564
+      - -9.5504
+  curve_type: line
+  id: 28
+  index: 28
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_29:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.0579
+      - 9.90687673603564
+      - -9.5504
+    min_point:
+      point:
+      - 4.457699999999999
+      - 8.306676736035639
+      - -9.5504
+  curve_type: circle
+  id: 29
+  index: 29
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_3:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - 9.1059
+      - -12.7254
+    min_point:
+      point:
+      - -9.1059
+      - -9.1059
+      - -12.7254
+  curve_type: circle
+  id: 3
+  index: 3
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_30:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -4.4577
+      - -9.10677673603564
+      - -7.9502
+    min_point:
+      point:
+      - -4.4577
+      - -9.10677673603564
+      - -9.5504
+  curve_type: line
+  id: 30
+  index: 30
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_31:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -4.457699999999999
+      - -8.306676736035639
+      - -9.5504
+    min_point:
+      point:
+      - -6.0579
+      - -9.90687673603564
+      - -9.5504
+  curve_type: circle
+  id: 31
+  index: 31
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_32:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.9126
+      - 11.9126
+      - -9.5504
+    min_point:
+      point:
+      - -11.9126
+      - -11.9126
+      - -9.5504
+  curve_type: circle
+  id: 32
+  index: 32
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_33:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.9126
+      - -1.45887274595228e-15
+      - -7.9502
+    min_point:
+      point:
+      - 11.9126
+      - -1.45887274595228e-15
+      - -9.5504
+  curve_type: line
+  id: 33
+  index: 33
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_34:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -6.35
+      - 7.77650717458569e-16
+      - 0.0
+    min_point:
+      point:
+      - -6.35
+      - 7.77650717458569e-16
+      - -7.9502
+  curve_type: line
+  id: 34
+  index: 34
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_35:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.35
+      - 6.35
+      - 0.0
+    min_point:
+      point:
+      - -6.35
+      - -6.35
+      - 0.0
+  curve_type: circle
+  id: 35
+  index: 35
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_4:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 7.5438
+      - 7.5438
+      - -12.7254
+    min_point:
+      point:
+      - -7.5438
+      - -7.5438
+      - -12.7254
+  curve_type: circle
+  id: 4
+  index: 4
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_5:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - 9.1059
+      - -15.113
+    min_point:
+      point:
+      - -9.1059
+      - -9.1059
+      - -15.113
+  curve_type: circle
+  id: 5
+  index: 5
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_6:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - -1.11515112883559e-15
+      - -12.7254
+    min_point:
+      point:
+      - 9.1059
+      - -1.11515112883559e-15
+      - -15.113
+  curve_type: line
+  id: 6
+  index: 6
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_7:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 7.5438
+      - -9.2384905234078e-16
+      - -10.3378
+    min_point:
+      point:
+      - 7.5438
+      - -9.2384905234078e-16
+      - -12.7254
+  curve_type: line
+  id: 7
+  index: 7
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_8:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 7.5438
+      - 7.5438
+      - -10.3378
+    min_point:
+      point:
+      - -7.5438
+      - -7.5438
+      - -10.3378
+  curve_type: circle
+  id: 8
+  index: 8
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepEdge_9:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - 9.1059
+      - -10.3378
+    min_point:
+      point:
+      - -9.1059
+      - -9.1059
+      - -10.3378
+  curve_type: circle
+  id: 9
+  index: 9
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: null
+  type: BRepEdge
+BRepFace_0:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 4.7625
+      - 4.7625
+      - 0.0
+    min_point:
+      point:
+      - -4.7625
+      - -4.7625
+      - -15.113
+  curve_type: null
+  id: 0
+  index: 0
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_1:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - 9.1059
+      - -12.7254
+    min_point:
+      point:
+      - -9.1059
+      - -9.1059
+      - -12.7254
+  curve_type: null
+  id: 1
+  index: 1
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: plane
+  type: BRepFace
+BRepFace_10:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -9.7155
+      - 0.800099999999999
+      - -7.9502
+    min_point:
+      point:
+      - -11.315699999999998
+      - -0.800099999999999
+      - -9.5504
+  curve_type: null
+  id: 10
+  index: 10
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_11:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -4.457699999999999
+      - 9.90687673603564
+      - -7.9502
+    min_point:
+      point:
+      - -6.0579
+      - 8.306676736035639
+      - -9.5504
+  curve_type: null
+  id: 11
+  index: 11
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_12:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.0579
+      - 9.90687673603564
+      - -7.9502
+    min_point:
+      point:
+      - 4.457699999999999
+      - 8.306676736035639
+      - -9.5504
+  curve_type: null
+  id: 12
+  index: 12
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_13:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - -4.457699999999999
+      - -8.306676736035639
+      - -7.9502
+    min_point:
+      point:
+      - -6.0579
+      - -9.90687673603564
+      - -9.5504
+  curve_type: null
+  id: 13
+  index: 13
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_14:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.9126
+      - 11.9126
+      - -7.9502
+    min_point:
+      point:
+      - -11.9126
+      - -11.9126
+      - -9.5504
+  curve_type: null
+  id: 14
+  index: 14
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_15:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.9126
+      - 11.9126
+      - -9.5504
+    min_point:
+      point:
+      - -11.9126
+      - -11.9126
+      - -9.5504
+  curve_type: null
+  id: 15
+  index: 15
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: plane
+  type: BRepFace
+BRepFace_16:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.35
+      - 6.35
+      - 0.0
+    min_point:
+      point:
+      - -6.35
+      - -6.35
+      - -7.9502
+  curve_type: null
+  id: 16
+  index: 16
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_17:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.35
+      - 6.35
+      - 0.0
+    min_point:
+      point:
+      - -6.35
+      - -6.35
+      - 0.0
+  curve_type: null
+  id: 17
+  index: 17
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: plane
+  type: BRepFace
+BRepFace_2:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - 9.1059
+      - -12.7254
+    min_point:
+      point:
+      - -9.1059
+      - -9.1059
+      - -15.113
+  curve_type: null
+  id: 2
+  index: 2
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_3:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - 9.1059
+      - -15.113
+    min_point:
+      point:
+      - -9.1059
+      - -9.1059
+      - -15.113
+  curve_type: null
+  id: 3
+  index: 3
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: plane
+  type: BRepFace
+BRepFace_4:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 7.5438
+      - 7.5438
+      - -10.3378
+    min_point:
+      point:
+      - -7.5438
+      - -7.5438
+      - -12.7254
+  curve_type: null
+  id: 4
+  index: 4
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_5:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - 9.1059
+      - -9.5504
+    min_point:
+      point:
+      - -9.1059
+      - -9.1059
+      - -10.3378
+  curve_type: null
+  id: 5
+  index: 5
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_6:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 9.1059
+      - 9.1059
+      - -10.3378
+    min_point:
+      point:
+      - -9.1059
+      - -9.1059
+      - -10.3378
+  curve_type: null
+  id: 6
+  index: 6
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: plane
+  type: BRepFace
+BRepFace_7:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.9126
+      - 11.9126
+      - -7.9502
+    min_point:
+      point:
+      - -11.9126
+      - -11.9126
+      - -7.9502
+  curve_type: null
+  id: 7
+  index: 7
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: plane
+  type: BRepFace
+BRepFace_8:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 11.3157
+      - 0.8001
+      - -7.9502
+    min_point:
+      point:
+      - 9.715499999999999
+      - -0.8001
+      - -9.5504
+  curve_type: null
+  id: 8
+  index: 8
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
+BRepFace_9:
+  body: 22666_bdaa1303_0035_2
+  bounding_box:
+    max_point:
+      point:
+      - 6.0579
+      - -8.306676736035639
+      - -7.9502
+    min_point:
+      point:
+      - 4.457699999999999
+      - -9.90687673603564
+      - -9.5504
+  curve_type: null
+  id: 9
+  index: 9
+  point_on_entity:
+    point:
+    - 0.0
+    - 0.0
+    - 0.0
+  surface_type: cylinder
+  type: BRepFace
