@@ -24,7 +24,6 @@ def create_joint_set_graph(
         body_two_graph: Mapping[str, np.ndarray]) -> Mapping[str, np.ndarray]:
     '''Create joint set graph (fully connected graph of the vertices of the body_one_graph and body_two_graph)
     Here we use only face/edge entity vertices and assume that vertices enumerated as first faces then edges.
-    
     The structure of the format has to be similar to:
     https://github.com/d61h6k4/brep2graph2/blob/main/src/brep2graph/configurations.py#L88
 
@@ -89,15 +88,15 @@ def positional_encoding(
     receivers: np.ndarray,
 ) -> np.ndarray:
     """Graph positional encoding v/ Laplacian eigenvectors."""
-    A = sparse.coo_matrix((np.ones((n_edge, )), (senders, receivers)),
+    a = sparse.coo_matrix((np.ones((n_edge, )), (senders, receivers)),
                           shape=(n_node, n_node))
-    L = sparse.csgraph.laplacian(A)
+    l = sparse.csgraph.laplacian(a)
 
     # Eigenvectors with numpy
-    EigVal, EigVec = np.linalg.eig(L.toarray())
-    idx = EigVal.argsort()  # increasing order
-    EigVal, EigVec = EigVal[idx], np.real(EigVec[:, idx])
-    return EigVec[:, 1:pos_enc_dim + 1]
+    eig_val, eig_vec = np.linalg.eig(l.toarray())
+    idx = eig_val.argsort()  # increasing order
+    eig_val, eig_vec = eig_val[idx], np.real(eig_vec[:, idx])
+    return eig_vec[:, 1:pos_enc_dim + 1]
 
 
 def _check_graph(graph):

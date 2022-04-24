@@ -35,6 +35,7 @@ setup(
     },
     install_requires=[
         'numpy>=1.21',
+        'scipy',
         'deprecate>=1.0.5',
         'occwl@git+https://github.com/AutodeskAILab/occwl@main',
         'brep2graph@git+https://github.com/d61h6k4/brep2graph2@main',
