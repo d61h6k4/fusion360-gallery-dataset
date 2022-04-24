@@ -20,6 +20,10 @@ from fusion360gallerydataset.assembly.joint.dataclasses import (JointSet,
                                                                 Joint)
 
 
+@pytest.fixture
+def joint_set_17549(datadir):
+    return (datadir / 'joint_set_17549.json').read_text()
+
 @pytest.fixture(name='joints')
 def fixture_joints(joint_set_17549):
     raw_data = json.loads(joint_set_17549)
